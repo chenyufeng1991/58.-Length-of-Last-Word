@@ -7,9 +7,45 @@
 //
 
 #include <iostream>
+#include <string>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int lengthOfLastWord(string s)
+{
+    reverse(s.begin(), s.end());
+    int result = 0;
+
+    int startIndex = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] == ' ')
+        {
+            continue;
+        }
+        else
+        {
+            startIndex = i;
+            break;
+        }
+    }
+
+    for (int i = startIndex; i < s.length(); i++)
+    {
+        if (s[i] != ' ')
+        {
+            result++;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return result;
+}
+
+int main(int argc, const char * argv[])
+{
     return 0;
 }
